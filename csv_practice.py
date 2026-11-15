@@ -1,5 +1,6 @@
 
 import csv
+from datetime import datetime
 processed = []
 total_revenue = 0
 with open("data/sales.csv", "r") as f:
@@ -54,3 +55,7 @@ with open("data/sales.csv", "r") as f:
 print("\nProduct Revenue Summary:")
 for product in sorted(product_summary):
     print(f"{product}: ${product_summary[product]:.2f}")
+timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+with open("data/run_log.txt", "a") as f:
+    f.write(f"{timestamp} - Total Revenue: ${total_revenue:.2f}\n")
+print("Run logged successfully!")
