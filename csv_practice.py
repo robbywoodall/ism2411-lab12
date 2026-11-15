@@ -24,3 +24,18 @@ with open("data/cleaned.csv", "w", newline="") as f:
 
 print(f"Wrote {len(high_value)} high-value orders to cleaned.csv")
 print(f"Original rows: {len(processed)}")
+dict_total_revenue = 0
+with open("data/sales.csv", "r") as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        product = row["product"]
+        price = float(row["price"])
+        qty = int(row["quantity"])
+        total = price * qty
+        dict_total_revenue += total
+        print(f"{product}: {qty} units x ${price:.2f} = ${total:.2f}")
+print(f"\nDictReader total revenue: ${dict_total_revenue:.2f}")
+# DictReader is much cleaner for files with many columns. It will automatically skip the 
+# header row and lets you access columns by name.
+# csvReader would be better used in smaller files where you are familiar with
+# where everything is.
