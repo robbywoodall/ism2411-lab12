@@ -1,4 +1,13 @@
-
+# --- Reflection 1 ---
+# Python can use be used to handle more data without manually opening each file.
+# Each file can be automatically updated with new information instead of having to do so manually.
+# You can also use Python to customize what you need for any report that you want.
+# With Excel, you don't necessarily need to know how to program. Having knowledge of 
+# math and some basic functions can allow you to accomplish some easy tasks.
+# --- Reflection 2 ---
+# I think that a company keeping track of large quantities of inventory would appreciate
+# an append function. Being able to keep track of inventory on a weekly basis, as I 
+# am sure many companies need to do, would allow them to run efficiently.
 import csv
 from datetime import datetime
 processed = []
