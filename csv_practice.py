@@ -39,3 +39,18 @@ print(f"\nDictReader total revenue: ${dict_total_revenue:.2f}")
 # header row and lets you access columns by name.
 # csvReader would be better used in smaller files where you are familiar with
 # where everything is.
+product_summary = {}
+with open("data/sales.csv", "r") as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        product = row["product"]
+        price = float(row["price"])
+        qty = int(row["quantity"])
+        revenue = price * qty
+        if product in product_summary:
+            product_summary[product] += revenue
+        else:
+            product_summary[product] = revenue
+print("\nProduct Revenue Summary:")
+for product in sorted(product_summary):
+    print(f"{product}: ${product_summary[product]:.2f}")
